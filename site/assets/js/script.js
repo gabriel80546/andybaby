@@ -22,6 +22,8 @@ function onLoad() {
 	for(var i = 0; i < lenguePreco; i++) {
 		loadDoc(i+1, 'PRECO_ATACADO', mepega[i]);
 	}
+	//gerarCard(img, preco, nome, cor);
+	gerarCard();
 }
 function loadDoc(id, coluna, cursor) {
 	var xhttp = new XMLHttpRequest();
@@ -67,7 +69,37 @@ function genCor(arg0, element) {
 function genPreco(arg0, element) {
 	var imagem = document.createElement("strong");
 	var parente = element.parentElement;
-	imagem.innerHTML = "R$ " + arg0;
+	imagem.innerHTML = "R$ " + arg0.replace("\.", ",");
 	parente.insertAdjacentElement('afterbegin', imagem);
 	parente.removeChild(element);
+}
+
+
+
+
+function level1 (next) {
+	next();
+}
+
+function level2 (next) {
+	next();
+
+}
+
+
+function gerarCard() {
+	var card = document.querySelector('novocard');
+	var cardWarper = card.parentElement;
+	console.log("cardWarper: ");
+	console.log(cardWarper);
+	cardWarper.removeChild(card);
+
+	var div1 = document.createElement("div");
+	div1.setAttribute("class", "col-lg-3 col-md-6 mb-4");
+	cardWarper.insertAdjacentElement('beforeend', div1);
+
+	var div2 = document.createElement("div");
+	div2.setAttribute("class", "card");
+	div1.insertAdjacentElement('beforeend', div2);
+
 }
