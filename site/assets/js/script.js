@@ -102,4 +102,14 @@ function gerarCard() {
 	div2.setAttribute("class", "card");
 	div1.insertAdjacentElement('beforeend', div2);
 
+	var div3 = document.createElement("div");
+	div3.setAttribute("class", "view overlay");
+	div2.insertAdjacentElement('beforeend', div3);
+
+
+	var img = document.createElement("img");
+	img.setAttribute("src", "assets/img/db/04.jpg");
+	img.setAttribute("class", "card-img-top");
+	div3.insertAdjacentElement('beforeend', img);
+
 }
