@@ -6,15 +6,12 @@ window.card.cor   = new Array();
 window.card.preco = new Array();
 
 function onLoad() {
-	for(var i = 1; i <= 5; i++) {
+	for(var i = 7; i <= 9; i++) {
 		loadDoc(i, 'CAMINHO');
 		loadDoc(i, 'COR');
 		loadDoc(i, 'NOME');
 		loadDoc(i, 'PRECO_ATACADO');
 	}
-	//gerarCard(img, cor, nome, preco);
-	gerarCard("assets/img/db/04.jpg", "AZUL", "IPANEMA", "12.5");
-	gerarCard("assets/img/db/05.jpg", "ROSA", "IPANEMA", "12.5");
 }
 
 function loadDoc(id, coluna) {
@@ -60,20 +57,16 @@ function checkAndRemoveCompletedCard() {
 	   window.card.nome.length > 0 &&
 	   window.card.preco.length > 0) {
 		console.log("CARD COMPLETED");
-		gerarCard(window.card.img[0].replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""),
+		gerarCard(window.card.img[0],
 		          window.card.cor[0],
 		          window.card.nome[0],
 		          window.card.preco[0]);
-		window.card.img.splice(window.card.img[0], 1);
-		window.card.cor.splice(window.card.cor[0], 1);
-		window.card.nome.splice(window.card.nome[0], 1);
-		window.card.preco.splice(window.card.preco.indexOf(window.card.preco[0]), 1);
+		window.card.img.splice(0, 1);
+		window.card.cor.splice(0, 1);
+		window.card.nome.splice(0, 1);
+		window.card.preco.splice(0, 1);
 	}
 }
-
-
-
-
 
 function gerarCard(imgCaminho, cor, nome, preco) {
 	var card = document.querySelector('novocard');
@@ -93,7 +86,7 @@ function gerarCard(imgCaminho, cor, nome, preco) {
 
 	// IMAGEM
 	var img = document.createElement("img");
-	img.setAttribute("src", imgCaminho);
+	img.setAttribute("src", imgCaminho.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
 	img.setAttribute("class", "card-img-top");
 	div3.insertAdjacentElement('beforeend', img);
 
@@ -144,5 +137,4 @@ function gerarCard(imgCaminho, cor, nome, preco) {
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
-	//cardWarper.removeChild(card);
 }
