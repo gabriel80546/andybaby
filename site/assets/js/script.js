@@ -1,91 +1,78 @@
+
+window.card = new Object();
+window.card.img   = new Array();
+window.card.nome  = new Array();
+window.card.cor   = new Array();
+window.card.preco = new Array();
+
 function onLoad() {
-	var mepega = document.querySelectorAll("mepegaImg");
-	const lengueImg = mepega.length;
-	for(var i = 0; i < lengueImg; i++) {
-		loadDoc(i+1, 'CAMINHO', mepega[i]);
-	}
-
-	var mepega = document.querySelectorAll("mepegaNome");
-	const lengueNome =  mepega.length;
-	for(var i = 0; i < lengueNome; i++) {
-		loadDoc(i+1, 'NOME', mepega[i]);
-	}
-
-	var mepega = document.querySelectorAll("mepegaCor");
-	const lengueCor = mepega.length;
-	for(var i = 0; i < lengueCor; i++) {
-		loadDoc(i+1, 'COR', mepega[i]);
-	}
-
-	var mepega = document.querySelectorAll("mepegaPreco");
-	const lenguePreco = mepega.length;
-	for(var i = 0; i < lenguePreco; i++) {
-		loadDoc(i+1, 'PRECO_ATACADO', mepega[i]);
+	for(var i = 1; i <= 5; i++) {
+		loadDoc(i, 'CAMINHO');
+		loadDoc(i, 'COR');
+		loadDoc(i, 'NOME');
+		loadDoc(i, 'PRECO_ATACADO');
 	}
 	//gerarCard(img, cor, nome, preco);
 	gerarCard("assets/img/db/04.jpg", "AZUL", "IPANEMA", "12.5");
 	gerarCard("assets/img/db/05.jpg", "ROSA", "IPANEMA", "12.5");
 }
-function loadDoc(id, coluna, cursor) {
+
+function loadDoc(id, coluna) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			if(cursor.tagName == "MEPEGAIMG") {
-				genImg(this.responseText, cursor);
-			} else if(cursor.tagName == "MEPEGANOME") {
-				genNome(this.responseText, cursor);
-			} else if(cursor.tagName == "MEPEGACOR") {
-				genCor(this.responseText, cursor);
-			} else if(cursor.tagName == "MEPEGAPRECO") {
-				genPreco(this.responseText, cursor);
+			console.log("COLUNA: " + coluna + " CONTEUDO: " + this.responseText);
+			if(coluna == "CAMINHO") {
+				pushImg(this.responseText);
+			} else if(coluna == "COR") {
+				pushCor(this.responseText);
+			} else if(coluna == "NOME") {
+				pushNome(this.responseText);
+			} else if(coluna == "PRECO_ATACADO") {
+				pushPreco(this.responseText);
 			}
 		}
 	};
 	xhttp.open("GET", "?id=" + id + "&coluna=" + coluna, true);
 	xhttp.send();
 }
-function genImg(arg0, element) {
-	var imagem = document.createElement("img");
-	var parente = element.parentElement;
-	imagem.setAttribute("src", arg0.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
-	imagem.setAttribute("class", "card-img-top");
-	parente.insertAdjacentElement('afterbegin', imagem);
-	parente.removeChild(element);
+
+function pushImg(arg0) {
+	window.card.img.push(arg0);
+	checkAndRemoveCompletedCard();
 }
-function genNome(arg0, element) {
-	var imagem = document.createElement("a");
-	var parente = element.parentElement;
-	imagem.setAttribute("class", "dark-grey-text");
-	imagem.innerHTML = arg0;
-	parente.insertAdjacentElement('afterbegin', imagem);
-	parente.removeChild(element);
+function pushCor(arg0) {
+	window.card.cor.push(arg0);
+	checkAndRemoveCompletedCard();
 }
-function genCor(arg0, element) {
-	var imagem = document.createElement("h5");
-	var parente = element.parentElement;
-	imagem.innerHTML = arg0;
-	parente.insertAdjacentElement('afterbegin', imagem);
-	parente.removeChild(element);
+function pushNome(arg0) {
+	window.card.nome.push(arg0);
+	checkAndRemoveCompletedCard();
 }
-function genPreco(arg0, element) {
-	var imagem = document.createElement("strong");
-	var parente = element.parentElement;
-	imagem.innerHTML = "R$ " + arg0.replace("\.", ",");
-	parente.insertAdjacentElement('afterbegin', imagem);
-	parente.removeChild(element);
+function pushPreco(arg0) {
+	window.card.preco.push(arg0);
+	checkAndRemoveCompletedCard();
 }
 
-
-
-
-function level1 (next) {
-	next();
+function checkAndRemoveCompletedCard() {
+	if(window.card.img.length  > 0 &&
+	   window.card.cor.length  > 0 &&
+	   window.card.nome.length > 0 &&
+	   window.card.preco.length > 0) {
+		console.log("CARD COMPLETED");
+		gerarCard(window.card.img[0].replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""),
+		          window.card.cor[0],
+		          window.card.nome[0],
+		          window.card.preco[0]);
+		window.card.img.splice(window.card.img[0], 1);
+		window.card.cor.splice(window.card.cor[0], 1);
+		window.card.nome.splice(window.card.nome[0], 1);
+		window.card.preco.splice(window.card.preco.indexOf(window.card.preco[0]), 1);
+	}
 }
 
-function level2 (next) {
-	next();
 
-}
+
 
 
 function gerarCard(imgCaminho, cor, nome, preco) {
