@@ -1,12 +1,14 @@
 
 window.card = new Object();
+window.card.id    = new Array();
 window.card.img   = new Array();
 window.card.nome  = new Array();
 window.card.cor   = new Array();
 window.card.preco = new Array();
 
 function onLoad() {
-	for(var i = 7; i <= 9; i++) {
+	for(var i = 1; i <= 9; i++) {
+		window.card.id.push(i);
 		loadDoc(i, 'CAMINHO');
 		loadDoc(i, 'COR');
 		loadDoc(i, 'NOME');
@@ -55,20 +57,23 @@ function checkAndRemoveCompletedCard() {
 	if(window.card.img.length  > 0 &&
 	   window.card.cor.length  > 0 &&
 	   window.card.nome.length > 0 &&
-	   window.card.preco.length > 0) {
+	   window.card.preco.length > 0 &&
+	   window.card.id.length > 0) {
 		console.log("CARD COMPLETED");
 		gerarCard(window.card.img[0],
 		          window.card.cor[0],
 		          window.card.nome[0],
-		          window.card.preco[0]);
+		          window.card.preco[0],
+		          window.card.id[0]);
 		window.card.img.splice(0, 1);
 		window.card.cor.splice(0, 1);
 		window.card.nome.splice(0, 1);
 		window.card.preco.splice(0, 1);
+		window.card.id.splice(0, 1);
 	}
 }
 
-function gerarCard(imgCaminho, cor, nome, preco) {
+function gerarCard(imgCaminho, cor, nome, preco, id) {
 	var card = document.querySelector('novocard');
 	var cardWarper = card.parentElement;
 
@@ -91,6 +96,7 @@ function gerarCard(imgCaminho, cor, nome, preco) {
 	div3.insertAdjacentElement('beforeend', img);
 
 	var a1 = document.createElement("a");
+	a1.setAttribute("href", "product-page.html?produto=" + id);
 	div3.insertAdjacentElement('beforeend', a1);
 
 	var div4 = document.createElement("div");
@@ -103,6 +109,7 @@ function gerarCard(imgCaminho, cor, nome, preco) {
 
 	var a2 = document.createElement("a");
 	a2.setAttribute("class", "grey-text");
+	a2.setAttribute("href", "product-page.html?produto=" + id);
 	div5.insertAdjacentElement('beforeend', a2);
 
 	// COR
@@ -119,6 +126,7 @@ function gerarCard(imgCaminho, cor, nome, preco) {
 	// NOME
 	var a3 = document.createElement("a");
 	a3.setAttribute("class", "dark-grey-text");
+	a3.setAttribute("href", "product-page.html?produto=" + id);
 	a3.innerHTML = nome;
 	strong.insertAdjacentElement('beforeend', a3);
 
