@@ -1,10 +1,11 @@
 
 window.card = new Object();
+window.card.orded = false;
 window.card.id    = new Array();
-window.card.img   = new Array();
-window.card.nome  = new Array();
-window.card.cor   = new Array();
-window.card.preco = new Array();
+window.card.img   = { corpo: new Array() , id: new Array() };
+window.card.nome  = { corpo: new Array() , id: new Array() };
+window.card.cor   = { corpo: new Array() , id: new Array() };
+window.card.preco = { corpo: new Array() , id: new Array() };
 
 function onLoad() {
 	for(var i = 1; i <= 9; i++) {
@@ -22,13 +23,13 @@ function loadDoc(id, coluna) {
 		if (this.readyState == 4 && this.status == 200) {
 			console.log("COLUNA: " + coluna + " CONTEUDO: " + this.responseText);
 			if(coluna == "CAMINHO") {
-				pushImg(this.responseText);
+				pushImg(this.responseText, id);
 			} else if(coluna == "COR") {
-				pushCor(this.responseText);
+				pushCor(this.responseText, id);
 			} else if(coluna == "NOME") {
-				pushNome(this.responseText);
+				pushNome(this.responseText, id);
 			} else if(coluna == "PRECO_ATACADO") {
-				pushPreco(this.responseText);
+				pushPreco(this.responseText, id);
 			}
 		}
 	};
@@ -36,41 +37,113 @@ function loadDoc(id, coluna) {
 	xhttp.send();
 }
 
-function pushImg(arg0) {
-	window.card.img.push(arg0);
+function pushImg(arg0, arg1) {
+	window.card.img.corpo.push(arg0);
+	window.card.img.id.push(arg1);
 	checkAndRemoveCompletedCard();
 }
-function pushCor(arg0) {
-	window.card.cor.push(arg0);
+function pushCor(arg0, arg1) {
+	window.card.cor.corpo.push(arg0);
+	window.card.cor.id.push(arg1);
 	checkAndRemoveCompletedCard();
 }
-function pushNome(arg0) {
-	window.card.nome.push(arg0);
+function pushNome(arg0, arg1) {
+	window.card.nome.corpo.push(arg0);
+	window.card.nome.id.push(arg1);
 	checkAndRemoveCompletedCard();
 }
-function pushPreco(arg0) {
-	window.card.preco.push(arg0);
+function pushPreco(arg0, arg1) {
+	window.card.preco.corpo.push(arg0);
+	window.card.preco.id.push(arg1);
 	checkAndRemoveCompletedCard();
 }
 
 function checkAndRemoveCompletedCard() {
-	if(window.card.img.length  > 0 &&
-	   window.card.cor.length  > 0 &&
-	   window.card.nome.length > 0 &&
-	   window.card.preco.length > 0 &&
+
+	if(window.card.img.corpo.length  > 0 &&
+	   window.card.cor.corpo.length  > 0 &&
+	   window.card.nome.corpo.length > 0 &&
+	   window.card.preco.corpo.length > 0 &&
 	   window.card.id.length > 0) {
+
 		console.log("CARD COMPLETED");
-		gerarCard(window.card.img[0],
-		          window.card.cor[0],
-		          window.card.nome[0],
-		          window.card.preco[0],
-		          window.card.id[0]);
-		window.card.img.splice(0, 1);
-		window.card.cor.splice(0, 1);
-		window.card.nome.splice(0, 1);
-		window.card.preco.splice(0, 1);
-		window.card.id.splice(0, 1);
+		console.log("orded? " + isOreded() + ".");
+		if(isOreded() == false) {
+			reOrder();
+		}
+		if(isOreded()) {
+			console.log("id " + window.card.id[0]);
+			console.log(window.card.img.corpo[0], window.card.img.id[0]);
+			console.log(window.card.cor.corpo[0], window.card.cor.id[0]);
+			console.log(window.card.nome.corpo[0], window.card.nome.id[0]);
+			console.log(window.card.preco.corpo[0], window.card.preco.id[0]);
+
+			gerarCard(window.card.img.corpo[0],
+				  window.card.cor.corpo[0],
+				  window.card.nome.corpo[0],
+				  window.card.preco.corpo[0],
+				  window.card.id[0]);
+			window.card.img.corpo.splice(0, 1);
+			window.card.img.id.splice(0, 1);
+			window.card.cor.corpo.splice(0, 1);
+			window.card.cor.id.splice(0, 1);
+			window.card.nome.corpo.splice(0, 1);
+			window.card.nome.id.splice(0, 1);
+			window.card.preco.corpo.splice(0, 1);
+			window.card.preco.id.splice(0, 1);
+			window.card.id.splice(0, 1);
+		}
 	}
+}
+function isOreded() {
+	return window.card.id[0] == window.card.img.id[0] &&
+	       window.card.id[0] == window.card.cor.id[0] &&
+	       window.card.id[0] == window.card.nome.id[0] &&
+	       window.card.id[0] == window.card.preco.id[0];
+}
+function reOrder() {
+
+	var possible = false;
+	debugger;
+	var currentId = window.card.id[0];
+	if(currentId != window.card.img.id[0]) {
+		if(swap(currentId, window.card.img) == false) {
+			return;
+		}
+	}
+	if(currentId != window.card.cor.id[0]) {
+		if(swap(currentId, window.card.cor) == false) {
+			return;
+		}
+	}
+	if(currentId != window.card.nome.id[0]) {
+		if(swap(currentId, window.card.nome) == false) {
+			return;
+		}
+	}
+	if(currentId != window.card.preco.id[0]) {
+		if(swap(currentId, window.card.preco) == false) {
+			return;
+		}
+	}
+	function swap(id, card) {
+		for(var i = 0; i < card.id.length; i++) {
+			if(id == card.id[i]) {
+				var tmp = card.id[0];
+				card.id[0] = card.id[i];
+				card.id[1] = tmp;
+				tmp = card.corpo[0];
+				card.corpo[0] = card.corpo[i];
+				card.corpo[1] = tmp;
+				possible = true;
+				break;
+			}
+		}
+		if(possible == false) {
+			return false;
+		}
+	}
+	return true;
 }
 
 function gerarCard(imgCaminho, cor, nome, preco, id) {
@@ -91,7 +164,7 @@ function gerarCard(imgCaminho, cor, nome, preco, id) {
 
 	// IMAGEM
 	var img = document.createElement("img");
-	img.setAttribute("src", imgCaminho.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
+	img.setAttribute("src", imgCaminho.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site","") + "?random=" + Math.random());
 	img.setAttribute("class", "card-img-top");
 	div3.insertAdjacentElement('beforeend', img);
 
