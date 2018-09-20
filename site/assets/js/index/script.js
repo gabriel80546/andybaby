@@ -21,7 +21,6 @@ function loadDoc(id, coluna) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			console.log("COLUNA: " + coluna + " CONTEUDO: " + this.responseText);
 			if(coluna == "CAMINHO") {
 				pushImg(this.responseText, id);
 			} else if(coluna == "COR") {
@@ -59,91 +58,64 @@ function pushPreco(arg0, arg1) {
 }
 
 function checkAndRemoveCompletedCard() {
-
-	if(window.card.img.corpo.length  > 0 &&
-	   window.card.cor.corpo.length  > 0 &&
-	   window.card.nome.corpo.length > 0 &&
-	   window.card.preco.corpo.length > 0 &&
-	   window.card.id.length > 0) {
-
-		console.log("CARD COMPLETED");
-		console.log("orded? " + isOreded() + ".");
-		if(isOreded() == false) {
-			reOrder();
-		}
-		if(isOreded()) {
-			console.log("id " + window.card.id[0]);
-			console.log(window.card.img.corpo[0], window.card.img.id[0]);
-			console.log(window.card.cor.corpo[0], window.card.cor.id[0]);
-			console.log(window.card.nome.corpo[0], window.card.nome.id[0]);
-			console.log(window.card.preco.corpo[0], window.card.preco.id[0]);
-
-			gerarCard(window.card.img.corpo[0],
-				  window.card.cor.corpo[0],
-				  window.card.nome.corpo[0],
-				  window.card.preco.corpo[0],
-				  window.card.id[0]);
-			window.card.img.corpo.splice(0, 1);
-			window.card.img.id.splice(0, 1);
-			window.card.cor.corpo.splice(0, 1);
-			window.card.cor.id.splice(0, 1);
-			window.card.nome.corpo.splice(0, 1);
-			window.card.nome.id.splice(0, 1);
-			window.card.preco.corpo.splice(0, 1);
-			window.card.preco.id.splice(0, 1);
-			window.card.id.splice(0, 1);
-		}
+	reOrder();
+	while(window.card.img.corpo.length  > 0 &&
+	      window.card.cor.corpo.length  > 0 &&
+	      window.card.nome.corpo.length > 0 &&
+	      window.card.preco.corpo.length > 0 &&
+	      window.card.id.length > 0 &&
+	      isOrded() == true) {
+		gerarCard(window.card.img.corpo[0],
+			  window.card.cor.corpo[0],
+			  window.card.nome.corpo[0],
+			  window.card.preco.corpo[0],
+			  window.card.id[0]);
+		window.card.img.corpo.splice(0, 1);
+		window.card.img.id.splice(0, 1);
+		window.card.cor.corpo.splice(0, 1);
+		window.card.cor.id.splice(0, 1);
+		window.card.nome.corpo.splice(0, 1);
+		window.card.nome.id.splice(0, 1);
+		window.card.preco.corpo.splice(0, 1);
+		window.card.preco.id.splice(0, 1);
+		window.card.id.splice(0, 1);
+		reOrder();
 	}
 }
-function isOreded() {
+function isOrded() {
 	return window.card.id[0] == window.card.img.id[0] &&
 	       window.card.id[0] == window.card.cor.id[0] &&
 	       window.card.id[0] == window.card.nome.id[0] &&
 	       window.card.id[0] == window.card.preco.id[0];
 }
 function reOrder() {
-
-	var possible = false;
-	debugger;
 	var currentId = window.card.id[0];
 	if(currentId != window.card.img.id[0]) {
-		if(swap(currentId, window.card.img) == false) {
-			return;
-		}
+		swap(currentId, window.card.img);
 	}
 	if(currentId != window.card.cor.id[0]) {
-		if(swap(currentId, window.card.cor) == false) {
-			return;
-		}
+		swap(currentId, window.card.cor);
 	}
 	if(currentId != window.card.nome.id[0]) {
-		if(swap(currentId, window.card.nome) == false) {
-			return;
-		}
+		swap(currentId, window.card.nome);
 	}
 	if(currentId != window.card.preco.id[0]) {
-		if(swap(currentId, window.card.preco) == false) {
-			return;
-		}
+		swap(currentId, window.card.preco);
 	}
 	function swap(id, card) {
 		for(var i = 0; i < card.id.length; i++) {
 			if(id == card.id[i]) {
 				var tmp = card.id[0];
 				card.id[0] = card.id[i];
-				card.id[1] = tmp;
+				card.id[i] = tmp;
 				tmp = card.corpo[0];
 				card.corpo[0] = card.corpo[i];
-				card.corpo[1] = tmp;
-				possible = true;
-				break;
+				card.corpo[i] = tmp;
+				return;
 			}
 		}
-		if(possible == false) {
-			return false;
-		}
 	}
-	return true;
+	return;
 }
 
 function gerarCard(imgCaminho, cor, nome, preco, id) {
