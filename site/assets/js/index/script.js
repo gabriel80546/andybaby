@@ -1,106 +1,80 @@
 
 window.card = new Object();
-window.card.orded = false;
-window.card.id    = new Array();
-window.card.img   = { corpo: new Array() , id: new Array() };
-window.card.nome  = { corpo: new Array() , id: new Array() };
-window.card.cor   = { corpo: new Array() , id: new Array() };
-window.card.preco = { corpo: new Array() , id: new Array() };
+window.card.id = new Array();
+window.card.img           = { corpo: new Array() , id: new Array() , coluna: "CAMINHO" };
+window.card.nome          = { corpo: new Array() , id: new Array() , coluna: "NOME" };
+window.card.cor           = { corpo: new Array() , id: new Array() , coluna: "COR" };
+window.card.precoAtacado  = { corpo: new Array() , id: new Array() , coluna: "PRECO_ATACADO" };
+window.card.fields = [ "img" , "nome" , "cor" , "precoAtacado" ];
+/*
+window.card.precoVarejo   = { corpo: new Array() , id: new Array() , coluna: "PRECO_VAREJO" };
+window.card.fields = [ "img" , "nome" , "cor" , "precoAtacado", "precoVarejo" ];
+*/
 
 function onLoad() {
-	for(var i = 1; i <= 9; i++) {
+	for(var i = 1; i <= 8; i++) {
 		window.card.id.push(i);
-		loadDoc(i, 'CAMINHO');
-		loadDoc(i, 'COR');
-		loadDoc(i, 'NOME');
-		loadDoc(i, 'PRECO_ATACADO');
+		for(var j = 0; j < window.card.fields.length; j++) {
+			loadDoc(i, window.card[window.card.fields[j]]);
+		}
 	}
 }
 
-function loadDoc(id, coluna) {
+function loadDoc(id, field) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			if(coluna == "CAMINHO") {
-				pushImg(this.responseText, id);
-			} else if(coluna == "COR") {
-				pushCor(this.responseText, id);
-			} else if(coluna == "NOME") {
-				pushNome(this.responseText, id);
-			} else if(coluna == "PRECO_ATACADO") {
-				pushPreco(this.responseText, id);
-			}
+			push(this.responseText, field, id);
 		}
 	};
-	xhttp.open("GET", "?id=" + id + "&coluna=" + coluna, true);
+	xhttp.open("GET", "?id=" + id + "&coluna=" + field.coluna, true);
 	xhttp.send();
 }
 
-function pushImg(arg0, arg1) {
-	window.card.img.corpo.push(arg0);
-	window.card.img.id.push(arg1);
-	checkAndRemoveCompletedCard();
-}
-function pushCor(arg0, arg1) {
-	window.card.cor.corpo.push(arg0);
-	window.card.cor.id.push(arg1);
-	checkAndRemoveCompletedCard();
-}
-function pushNome(arg0, arg1) {
-	window.card.nome.corpo.push(arg0);
-	window.card.nome.id.push(arg1);
-	checkAndRemoveCompletedCard();
-}
-function pushPreco(arg0, arg1) {
-	window.card.preco.corpo.push(arg0);
-	window.card.preco.id.push(arg1);
+function push(DataAPI, field, id) {
+	field.corpo.push(DataAPI);
+	field.id.push(id);
 	checkAndRemoveCompletedCard();
 }
 
 function checkAndRemoveCompletedCard() {
 	reOrder();
-	while(window.card.img.corpo.length  > 0 &&
-	      window.card.cor.corpo.length  > 0 &&
-	      window.card.nome.corpo.length > 0 &&
-	      window.card.preco.corpo.length > 0 &&
-	      window.card.id.length > 0 &&
-	      isOrded() == true) {
-		gerarCard(window.card.img.corpo[0],
-			  window.card.cor.corpo[0],
-			  window.card.nome.corpo[0],
-			  window.card.preco.corpo[0],
-			  window.card.id[0]);
-		window.card.img.corpo.splice(0, 1);
-		window.card.img.id.splice(0, 1);
-		window.card.cor.corpo.splice(0, 1);
-		window.card.cor.id.splice(0, 1);
-		window.card.nome.corpo.splice(0, 1);
-		window.card.nome.id.splice(0, 1);
-		window.card.preco.corpo.splice(0, 1);
-		window.card.preco.id.splice(0, 1);
+	while(checkCompletion() && isOrded() == true) {
+		gerarCard(window.card);
+		for(var j = 0; j < window.card.fields.length; j++) {
+			window.card[window.card.fields[j]].corpo.splice(0, 1);
+			window.card[window.card.fields[j]].id.splice(0, 1);
+		}
 		window.card.id.splice(0, 1);
 		reOrder();
 	}
+	function checkCompletion() {
+		var isCompleted = true;
+		for(var j = 0; j < window.card.fields.length; j++) {
+			if(window.card[window.card.fields[j]].corpo.length == 0) {
+				isCompleted = false;
+				break;
+			}
+		}
+		return isCompleted;
+	}
 }
 function isOrded() {
-	return window.card.id[0] == window.card.img.id[0] &&
-	       window.card.id[0] == window.card.cor.id[0] &&
-	       window.card.id[0] == window.card.nome.id[0] &&
-	       window.card.id[0] == window.card.preco.id[0];
+	var isOrded = true;
+	for(var j = 0; j < window.card.fields.length; j++) {
+		if(window.card[window.card.fields[j]].id[0] != window.card.id[0]) {
+			isOrded = false;
+			break;
+		}
+	}
+	return isOrded;
 }
 function reOrder() {
 	var currentId = window.card.id[0];
-	if(currentId != window.card.img.id[0]) {
-		swap(currentId, window.card.img);
-	}
-	if(currentId != window.card.cor.id[0]) {
-		swap(currentId, window.card.cor);
-	}
-	if(currentId != window.card.nome.id[0]) {
-		swap(currentId, window.card.nome);
-	}
-	if(currentId != window.card.preco.id[0]) {
-		swap(currentId, window.card.preco);
+	for(var j = 0; j < window.card.fields.length; j++) {
+		if(currentId != window.card[window.card.fields[j]].id[0]) {
+			swap(currentId, window.card[window.card.fields[j]]);
+		}
 	}
 	function swap(id, card) {
 		for(var i = 0; i < card.id.length; i++) {
@@ -118,9 +92,9 @@ function reOrder() {
 	return;
 }
 
-function gerarCard(imgCaminho, cor, nome, preco, id) {
-	var card = document.querySelector('novocard');
-	var cardWarper = card.parentElement;
+function gerarCard(card) {
+	var cardHTML = document.querySelector('novocard');
+	var cardWarper = cardHTML.parentElement;
 
 	var div1 = document.createElement("div");
 	div1.setAttribute("class", "col-lg-3 col-md-6 mb-4");
@@ -136,12 +110,12 @@ function gerarCard(imgCaminho, cor, nome, preco, id) {
 
 	// IMAGEM
 	var img = document.createElement("img");
-	img.setAttribute("src", imgCaminho.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site","") + "?random=" + Math.random());
+	img.setAttribute("src", card.img.corpo[0].replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
 	img.setAttribute("class", "card-img-top");
 	div3.insertAdjacentElement('beforeend', img);
 
 	var a1 = document.createElement("a");
-	a1.setAttribute("href", "product-page.html?produto=" + id);
+	a1.setAttribute("href", "product-page.html?produto=" + card.id[0]);
 	div3.insertAdjacentElement('beforeend', a1);
 
 	var div4 = document.createElement("div");
@@ -154,12 +128,12 @@ function gerarCard(imgCaminho, cor, nome, preco, id) {
 
 	var a2 = document.createElement("a");
 	a2.setAttribute("class", "grey-text");
-	a2.setAttribute("href", "product-page.html?produto=" + id);
+	a2.setAttribute("href", "product-page.html?produto=" + card.id[0]);
 	div5.insertAdjacentElement('beforeend', a2);
 
 	// COR
 	var h5 = document.createElement("h5");
-	h5.innerHTML = cor;
+	h5.innerHTML = card.cor.corpo[0];
 	a2.insertAdjacentElement('beforeend', h5);
 
 	var h5a = document.createElement("h5");
@@ -171,21 +145,37 @@ function gerarCard(imgCaminho, cor, nome, preco, id) {
 	// NOME
 	var a3 = document.createElement("a");
 	a3.setAttribute("class", "dark-grey-text");
-	a3.setAttribute("href", "product-page.html?produto=" + id);
-	a3.innerHTML = nome;
+	a3.setAttribute("href", "product-page.html?produto=" + card.id[0]);
+	a3.innerHTML = card.nome.corpo[0];
 	strong.insertAdjacentElement('beforeend', a3);
 
 	var h4 = document.createElement("h4");
 	h4.setAttribute("class", "font-weight-bold blue-text");
 	div5.insertAdjacentElement('beforeend', h4);
 
+	var h4a = document.createElement("h4");
+	h4a.setAttribute("class", "font-weight-bold blue-text");
+	div5.insertAdjacentElement('beforeend', h4a);
+
+	// PRECO_ATACADO
 	var strong1 = document.createElement("strong");
 	strong1.setAttribute("data-toggle", "tooltip");
 	strong1.setAttribute("data-placement", "left");
 	strong1.setAttribute("title", "Atacado");
-	var n = new Number(preco);
+	var n = new Number(card.precoAtacado.corpo[0]);
 	strong1.innerHTML = "R$ " + n.toPrecision(Math.floor(Math.log10(n)) + 3).toString().replace("\.", ",");
 	h4.insertAdjacentElement('beforeend', strong1);
+
+/*
+	// PRECO_VAREJO
+	var strong2 = document.createElement("strong");
+	strong2.setAttribute("data-toggle", "tooltip");
+	strong2.setAttribute("data-placement", "left");
+	strong2.setAttribute("title", "Varejo");
+	var n1 = new Number(card.precoVarejo.corpo[0]);
+	strong2.innerHTML += "R$ " + n1.toPrecision(Math.floor(Math.log10(n1)) + 3).toString().replace("\.", ",");
+	h4a.insertAdjacentElement('beforeend', strong2);
+*/
 
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
