@@ -3,6 +3,9 @@ var mysql = require('mysql');
 var app = express();
 
 app.use('/', function(req, res, next) {
+	if(req.originalUrl == "/" || req.originalUrl == "/index.html") {
+		console.log("[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "]" + " ip: " + req.ip + " METHOD: " + req.method + " " + req.originalUrl);
+	}
 	if(req.method == "GET" && req.query.id != null) {
 		var con = mysql.createConnection({
 			host: "localhost",

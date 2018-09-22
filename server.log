@@ -1,0 +1,342 @@
+rodando em http://:::80
+ip: ::ffff:187.22.198.76 METHOD: GET /
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/css/garbage1.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/index/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_right.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_left.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/Logo800x640.png
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/estoque.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/01.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/02.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/03.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/04.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/06.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/07.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/08.jpg
+ip: ::ffff:109.94.127.122 METHOD: GET /
+ip: ::ffff:187.22.198.76 METHOD: GET /
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/index/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/css/garbage1.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/Logo800x640.png
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_right.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_left.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/estoque.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/01.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/02.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/03.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/04.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/06.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/07.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/08.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?produto=7
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/produto/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Medium.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=7&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=7&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=7&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/07.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/index/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/css/garbage1.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_right.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_left.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/Logo800x640.png
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/estoque.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/01.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/02.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/03.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/04.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/06.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/07.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/08.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?produto=5
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/produto/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Medium.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?produto=5
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/produto/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Medium.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /product-page.html?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /
+ip: ::ffff:187.22.198.76 METHOD: GET /css/style.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/LogoTransparente.png
+ip: ::ffff:187.22.198.76 METHOD: GET /css/bootstrap.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/css/garbage1.css
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/js/index/script.js
+ip: ::ffff:187.22.198.76 METHOD: GET /css/mdb.min.css
+ip: ::ffff:187.22.198.76 METHOD: GET /js/jquery-3.3.1.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/popper.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/mdb.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /js/bootstrap.min.js
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_right.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /img/svg/arrow_left.svg
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Light.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Bold.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /font/roboto/Roboto-Regular.woff2
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/logo/Logo800x640.png
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/estoque.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=1&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=2&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=3&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=4&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=5&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=6&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=7&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=CAMINHO
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=NOME
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=COR
+ip: ::ffff:187.22.198.76 METHOD: GET /?id=8&coluna=PRECO_ATACADO
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/01.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/02.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/03.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/04.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/05.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/06.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/07.jpg
+ip: ::ffff:187.22.198.76 METHOD: GET /assets/img/db/08.jpg
+rodando em http://:::80
+rodando em http://:::80
+[2018-09-22 12:04:01]ip: ::ffff:187.22.198.76 METHOD: GET /
+rodando em http://:::80
+rodando em http://:::80
+[2018-09-22 12:04:56] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 12:05:27] ip: ::ffff:187.22.198.76 METHOD: GET /index.html
+[2018-09-22 12:21:18] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 12:21:23] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 12:36:17] ip: ::ffff:109.94.123.101 METHOD: GET /
+[2018-09-22 12:40:59] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 12:48:51] ip: ::ffff:109.94.120.224 METHOD: GET /
+[2018-09-22 12:55:34] ip: ::ffff:109.94.113.195 METHOD: GET /
+rodando em http://:::80
+[2018-09-22 13:17:13] ip: ::ffff:187.22.198.76 METHOD: GET /
+rodando em http://:::80
+[2018-09-22 13:21:53] ip: ::ffff:187.22.198.76 METHOD: GET /
+rodando em http://:::80
+[2018-09-22 13:23:40] ip: ::ffff:187.22.198.76 METHOD: GET /
+rodando em http://:::80
+[2018-09-22 13:25:07] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 13:25:21] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 13:34:27] ip: ::ffff:66.249.85.18 METHOD: GET /
+[2018-09-22 13:41:24] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 13:45:38] ip: ::ffff:109.94.118.176 METHOD: GET /
+[2018-09-22 14:01:21] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:05:32] ip: ::ffff:109.94.127.122 METHOD: GET /
+[2018-09-22 14:07:40] ip: ::ffff:109.94.123.101 METHOD: GET /
+[2018-09-22 14:08:13] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:08:29] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:17:25] ip: ::ffff:109.94.120.224 METHOD: GET /
+[2018-09-22 14:26:47] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:26:52] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:26:59] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:27:37] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:28:22] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:28:52] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:29:51] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:30:09] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:30:23] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:34:44] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:34:52] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:36:55] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:37:07] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:38:01] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:39:31] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:46:06] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:46:46] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:50:52] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 14:54:53] ip: ::ffff:109.94.123.101 METHOD: GET /
+[2018-09-22 15:06:50] ip: ::ffff:187.22.198.76 METHOD: GET /
+[2018-09-22 15:07:38] ip: ::ffff:187.22.198.76 METHOD: GET /
+rodando em http://:::80
+[2018-09-22 15:10:22] ip: ::ffff:187.22.198.76 METHOD: GET /
