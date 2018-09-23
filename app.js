@@ -42,7 +42,7 @@ app.use('/', function(req, res, next) {
 
 
 var server = app.listen(80, function () {
-	var host = server.address().address
+	var addr = server.address().address
 	var port = server.address().port
-	console.log("rodando em http://%s:%s", host, port)
+	console.log("rodando em http://%s:%s", addr, port)
 });
