@@ -21,13 +21,14 @@ function onLoad() {
 }
 
 function loadDoc(id, field) {
+	var tabela = (field.coluna=="CAMINHO") ? "IMAGEM T" : "PRODUTO T";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			push(this.responseText, field, id);
 		}
 	};
-	xhttp.open("GET", "?id=" + id + "&coluna=" + field.coluna, true);
+	xhttp.open("GET", "?coluna=" + field.coluna + "&tabela=" + tabela + "&where=T.ID=" + id , true);
 	xhttp.send();
 }
 

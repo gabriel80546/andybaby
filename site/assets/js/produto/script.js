@@ -30,6 +30,7 @@ function onLoad() {
 }
 
 function loadDoc(id, coluna) {
+	var tabela = (coluna=="CAMINHO") ? "IMAGEM T" : "PRODUTO T";
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -43,6 +44,7 @@ function loadDoc(id, coluna) {
 		}
 	};
 	xhttp.open("GET", "?id=" + id + "&coluna=" + coluna, true);
+	xhttp.open("GET", "?coluna=" + coluna + "&tabela=" + tabela + "&where=T.ID=" + id , true);
 	xhttp.send();
 }
 function genImg(arg0) {
@@ -52,6 +54,15 @@ function genImg(arg0) {
 	imagem.setAttribute("src", arg0.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
 	imagem.setAttribute("class", "img-fluid");
 	parente.insertAdjacentElement('beforeend', imagem);
+
+	mepega = document.querySelector('mepegaIframe');
+	parente = mepega.parentElement;
+	var iframe = document.createElement('iframe');
+	iframe.setAttribute("src", "https://www.google.com/maps/d/embed?mid=1QqJGDn5spW6ZXtn1tdmIMr_ENDOF-YpQ&ll=-23.5317068138057%2C-46.61086106700549&z=15");
+	iframe.setAttribute("width", "640");
+	iframe.setAttribute("height", "480");
+	iframe.setAttribute("frameborder", "0");
+	parente.insertAdjacentElement('beforeend', iframe);
 }
 function genPreco(arg0) {
 	var mepega = document.querySelector('mepegaPreco');

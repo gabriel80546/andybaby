@@ -6,7 +6,7 @@ app.use('/', function(req, res, next) {
 	if(req.originalUrl == "/" || req.originalUrl == "/index.html") {
 		console.log("[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "]" + " ip: " + req.ip + " METHOD: " + req.method + " " + req.originalUrl);
 	}
-	if(req.method == "GET" && req.query.id != null) {
+	if(req.method == "GET" && req.query.tabela != null) {
 		var con = mysql.createConnection({
 			host: "localhost",
 			user: "root",
@@ -16,7 +16,8 @@ app.use('/', function(req, res, next) {
 
 		con.connect(function(err) {
 			if (err) throw err;
-			con.query("SELECT * FROM PRODUTO P JOIN IMAGEM I ON P.ID=I.ID_PRODUTO WHERE P.ID=" + req.query.id + ";",
+			console.log("QUERY: SELECT " + req.query.coluna + " FROM " + req.query.tabela + " WHERE " + req.query.where + ";");
+			con.query("SELECT " + req.query.coluna + " FROM " + req.query.tabela + " WHERE " + req.query.where + ";",
 			function (err, result, fields) {
 				//if (err) throw err;
 				if (err) {
@@ -27,9 +28,9 @@ app.use('/', function(req, res, next) {
 			});
 		});
 
-		function meChama (arg0) {
-			if(typeof arg0[0] !== "undefined") {
-				res.send(arg0[0][req.query.coluna].toString());
+		function meChama (dados) {
+			if(typeof dados[0] !== "undefined") {
+				res.send(dados[0][req.query.coluna].toString());
 			} else {
 				res.send('');
 			}
