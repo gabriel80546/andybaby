@@ -55,12 +55,29 @@ function genImg(arg0) {
 	imagem.setAttribute("class", "img-fluid");
 	parente.insertAdjacentElement('beforeend', imagem);
 
+
 	mepega = document.querySelector('mepegaIframe');
 	parente = mepega.parentElement;
+	var div = document.createElement('div');
+	div.setAttribute("id", "map-container");
+	div.setAttribute("class", "z-depth-1-half");
+	if($(window).width() < 680) {
+		div.setAttribute("style", "height: " + ($(window).width() - 40) * 0.75 + "px; width: " + $(window).width() - 40 + "px;");
+	} else {
+		div.setAttribute("style", "height: 480px; width: 640px;");
+	}
+	parente.insertAdjacentElement('beforeend', div);
+
+	parente = div;
 	var iframe = document.createElement('iframe');
 	iframe.setAttribute("src", "https://www.google.com/maps/d/embed?mid=1QqJGDn5spW6ZXtn1tdmIMr_ENDOF-YpQ&ll=-23.5317068138057%2C-46.61086106700549&z=15");
-	iframe.setAttribute("width", "640");
-	iframe.setAttribute("height", "480");
+	if($(window).width() < 680) {
+		iframe.setAttribute("width", $(window).width() - 40);
+		iframe.setAttribute("height", ($(window).width() - 40) * 0.75);
+	} else {
+		iframe.setAttribute("width", "640");
+		iframe.setAttribute("height", "480");
+	}
 	iframe.setAttribute("frameborder", "0");
 	parente.insertAdjacentElement('beforeend', iframe);
 }

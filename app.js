@@ -1,6 +1,17 @@
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
 var express = require('express');
 var mysql = require('mysql');
 var app = express();
+
+
+var options = {
+  key: fs.readFileSync(__dirname + '/ssl/domainKey.txt', 'utf8'),
+  cert: fs.readFileSync(__dirname + '/ssl/domainCrt.txt', 'utf8'),
+};
+
+
 
 app.use('/', function(req, res, next) {
 	if(req.originalUrl == "/" || req.originalUrl == "/index.html") {
@@ -16,7 +27,6 @@ app.use('/', function(req, res, next) {
 
 		con.connect(function(err) {
 			if (err) throw err;
-			console.log("QUERY: SELECT " + req.query.coluna + " FROM " + req.query.tabela + " WHERE " + req.query.where + ";");
 			con.query("SELECT " + req.query.coluna + " FROM " + req.query.tabela + " WHERE " + req.query.where + ";",
 			function (err, result, fields) {
 				//if (err) throw err;
@@ -36,14 +46,18 @@ app.use('/', function(req, res, next) {
 			}
 			con.destroy();
 		}
+	} else if(req.query.ip != null) {
+		res.send(req.connection.remoteAddress);
+		res.end();
 	} else {
 		next();
 	}
 }, express.static(__dirname + '/site/'));
 
-
-var server = app.listen(80, function () {
-	var addr = server.address().address
-	var port = server.address().port
-	console.log("rodando em http://%s:%s", addr, port)
+var server = https.createServer(options, app).listen(443, function(){
+  console.log("Express server listening on port " + "443");
 });
+var server = http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
