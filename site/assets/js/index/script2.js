@@ -108,7 +108,7 @@ function gerarCard(card) {
 		}
 	}
 	reRun(0, 1);
-	const spinA = document.querySelector('div.cp-loading');
+	const spinA = document.querySelector('div.loader');
 	spinA.parentElement.removeChild(spinA);
 	reRun(1, card.length);
 }

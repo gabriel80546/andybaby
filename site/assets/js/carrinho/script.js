@@ -9,9 +9,21 @@ function onLoadAfterIp(ip) {
 function onLoadUsuario(id) {
 	console.log("id: " + id);
 	loadDoc("NOME", "USUARIO U", "U.ID=" + id);
-	loadDoc("count(*)", "CARRINHO C JOIN CARRINHO_ITEMS CI ON C.ID=CI.ID_CARRINHO", "C.ID_USUARIO=" + id);
+	loadDoc("count(C.ID)", "CARRINHO C JOIN CARRINHO_ITEMS CI ON C.ID=CI.ID_CARRINHO", "C.ID_USUARIO=" + id);
+	loadDocCarrinho("usuario", "getCarrinho", id);
 }
 
+
+function loadDocCarrinho(DAL, metodo, usuarioId) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			genCarrinho(this.responseText);
+		}
+	};
+	xhttp.open("GET", "?DAL=" + DAL + "&metodo=" + metodo + "&usuarioId=" + usuarioId, true);
+	xhttp.send();
+}
 
 function loadDoc(coluna, tabela, where) {
 	var xhttp = new XMLHttpRequest();
@@ -76,11 +88,25 @@ function genNome(dados, coluna, tabela, where) {
 }
 function genCountCarrinho(dados, coluna, tabela, where) {
 
+
 	var mepega = document.querySelector('mepegaCountCarrinho');
 	var parente = mepega.parentElement;
 	var span = document.createElement('span');
 	span.setAttribute("class", "badge red z-depth-1 mr-1");
 	span.innerHTML = " " + dados + " ";
 	parente.insertAdjacentElement('afterbegin', span);
+
+	mepega = document.querySelector('mepegaCountCarrinho2');
+	parente = mepega;
+	span = document.createElement('span');
+	span.setAttribute("class", "badge badge-secondary badge-pill");
+	span.innerHTML = " " + dados + " ";
+	parente.insertAdjacentElement('afterend', span);
 	return;
+}
+function genCarrinho(dados) {
+	var carrinho = JSON.parse(dados);
+	for(var i = 0; i < carrinho.length; i++) {
+		console.log(carrinho[i]);
+	}
 }
