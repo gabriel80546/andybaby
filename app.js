@@ -1,16 +1,6 @@
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
 var express = require('express');
 var mysql = require('mysql');
 var app = express();
-
-var options = {
-  key: fs.readFileSync(__dirname + '/ssl/domainKey.txt', 'utf8'),
-  cert: fs.readFileSync(__dirname + '/ssl/domainCrt.txt', 'utf8'),
-};
-
-
 
 
 var DB = require('./DAL/baseDAL.js');
@@ -19,25 +9,31 @@ var usuarioDAL = require('./DAL/UsuarioDAL.js');
 var produtoDAL = require('./DAL/ProdutoDAL.js');
 
 
-
-
 app.use('/', function(req, res, next) {
 	if(req.originalUrl == "/" || req.originalUrl == "/index.html") {
-		console.log("[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "]" + " ip: " + req.ip + " METHOD: " + req.method + " " + req.originalUrl);
+		console.log("[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "]" + " ip: " + req.header('x-forwarded-for') + " METHOD: " + req.method + " " + req.originalUrl);
+		res.writeHead(302, {
+		  'Location': 'https://www.andybaby.com.br/static'
+		});
+		res.end();
 	}
 	if(req.method == "GET" && req.query.DAL != null) {
 		if(req.query.DAL == "usuario") {
-			if(req.query.metodo == "findAll") {
-				usuarioDAL.findAll(function (data) {
-					res.send(data);
-					res.end();
-				});
+			if(false) {
+				const nada = true;
 			}
-			else if (req.query.metodo == "getCarrinho") {
-				usuarioDAL.getCarrinho(function (data) {
-					res.send(data);
+			else if (req.query.metodo == "getUsuario") {
+				const ip = req.header('x-forwarded-for');
+				usuarioDAL.getUsuario(function (data) {
+					if(data.length == 0) {
+						res.send("ANONIMO");
+					} else if(data.length > 1) {
+						res.send("MAIS DE 1 LOGADO NO MESMO IP");
+					} else if(data.length == 1) {
+						res.send(data);
+					}
 					res.end();
-				}, req.query.usuarioId);
+				}, ip);
 			}
 		} else if(req.query.DAL == "produto") {
 			if(false) {
@@ -66,19 +62,13 @@ app.use('/', function(req, res, next) {
 			res.end();
 		}
 	} else if(req.method == "GET" && req.query.ip != null) {
-		res.send(req.connection.remoteAddress);
+		res.send(req.header('x-forwarded-for'));
 		res.end();
 	} else {
 		next();
 	}
-}, express.static(__dirname + '/site/'));
-
-
-
-var server = https.createServer(options, app).listen(443, function(){
-  console.log("Express server listening on port " + "443");
 });
-var server = http.createServer(function (req, res) {
-    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
-    res.end();
-}).listen(80);
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});

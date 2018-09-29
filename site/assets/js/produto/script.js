@@ -27,7 +27,7 @@ function onLoad() {
 		loadDoc(produtoId, "PRECO_ATACADO");
 		loadDoc(produtoId, "NOME");
 	}
-	getLogin();
+	//getLogin();
 }
 
 function loadDoc(id, coluna) {
@@ -44,15 +44,15 @@ function loadDoc(id, coluna) {
 			}
 		}
 	};
-	xhttp.open("GET", "?id=" + id + "&coluna=" + coluna, true);
-	xhttp.open("GET", "?coluna=" + coluna + "&tabela=" + tabela + "&where=T.ID=" + id , true);
+	xhttp.open("GET", "/?id=" + id + "&coluna=" + coluna, true);
+	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=T.ID=" + id , true);
 	xhttp.send();
 }
 function genImg(arg0) {
 	var mepega = document.querySelector('mepegaimg');
 	var parente = mepega.parentElement;
 	var imagem = document.createElement('img');
-	imagem.setAttribute("src", arg0.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site",""));
+	imagem.setAttribute("src", arg0.replace("/home/gabriel/desktop/Desenvolvimento/Web/andybaby/site/",""));
 	imagem.setAttribute("class", "img-fluid");
 	parente.insertAdjacentElement('beforeend', imagem);
 
@@ -71,7 +71,7 @@ function genImg(arg0) {
 
 	parente = div;
 	var iframe = document.createElement('iframe');
-	iframe.setAttribute("src", "https://www.google.com/maps/d/embed?mid=1QqJGDn5spW6ZXtn1tdmIMr_ENDOF-YpQ&ll=-23.5317068138057%2C-46.61086106700549&z=15");
+	iframe.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0513014899443!2d-46.61639468502278!3d-23.530657184698068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x52ec440d7d9a68eb!2sAndy+Baby!5e0!3m2!1spt-BR!2sbr!4v1538139780851");
 	if($(window).width() < 680) {
 		iframe.setAttribute("width", $(window).width() - 40);
 		iframe.setAttribute("height", ($(window).width() - 40) * 0.75);
@@ -81,6 +81,8 @@ function genImg(arg0) {
 	}
 	iframe.setAttribute("frameborder", "0");
 	parente.insertAdjacentElement('beforeend', iframe);
+	const spinA = document.querySelector('div.loader');
+	spinA.parentElement.removeChild(spinA);
 }
 function genPreco(arg0) {
 	var mepega = document.querySelector('mepegaPreco');
@@ -128,7 +130,7 @@ function loadDocLogin(coluna, tabela, where) {
 			}
 		}
 	};
-	xhttp.open("GET", "?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
+	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
 	xhttp.send();
 }
 
@@ -139,7 +141,7 @@ function getIp(coluna, tabela, where) {
 			onLoadAfterIp(this.responseText);
 		}
 	};
-	xhttp.open("GET", "?ip=1");
+	xhttp.open("GET", "/?ip=1");
 	xhttp.send();
 }
 function getUsuario(ip) {
@@ -152,7 +154,7 @@ function getUsuario(ip) {
 			onLoadUsuario(this.responseText);
 		}
 	};
-	xhttp.open("GET", "?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
+	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
 	xhttp.send();
 }
 function getCarrinho(id) {
@@ -165,7 +167,7 @@ function getCarrinho(id) {
 			
 		}
 	};
-	xhttp.open("GET", "?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
+	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
 	xhttp.send();
 }
 

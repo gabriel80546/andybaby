@@ -1,6 +1,13 @@
+
+/*
 function onLoad() {
 	loadDocDALUsuario("usuario", "getUsuario");
 }
+*/
+function login() {
+	loadDocDALUsuario("usuario", "getUsuario");
+}
+
 function loadDocDALUsuario(DAL, metodo, pagina) {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {

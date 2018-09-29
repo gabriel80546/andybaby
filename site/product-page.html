@@ -20,7 +20,10 @@
     <meta name="google-signin-client_id" content="176166204314-hu2dpfa2v0p90g59ncpi9tep0h5966vg.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-	<script type="text/javascript" src="assets/js/produto/script.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+	<link href="assets/css/index/googleLoading.css" rel="stylesheet">
+	<script type="text/javascript" src="assets/js/login.js"></script>
+	<script type="text/javascript" src="assets/js/produto/script.js"></script>
 
 </head>
 
@@ -32,7 +35,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="/">
+      <a class="navbar-brand waves-effect" href="/static/">
         <img src="assets/img/logo/LogoTransparente.png" style="width: 150px">
       </a>
 
@@ -48,7 +51,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="/">Loja
+            <a class="nav-link waves-effect" href="/static/">Loja
             </a>
           </li>
           <li class="nav-item">
@@ -97,6 +100,11 @@
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
+		<div class="loader">
+		  <svg class="circular" viewBox="25 25 50 50">
+		    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+		  </svg>
+		</div>
 	<mepegaImg></mepegaImg>
 
         </div>
@@ -209,8 +217,19 @@
 
     <!--Call to action-->
     <div class="pt-4">
-      <h4>Celular</h4>
-      <h4>(11) 99608-6564</h4>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-0" style="visibility: hidden">
+				<p>a</p>
+			</div>
+			<div class="col-md-6 col-sm-12" style="display: grid; grid-template-columns: auto auto;">
+				<h4>Telefone (7h as 17h)</h4>
+				<h4>(11)  2692-2262</h4>
+				<h4>Celular</h4>
+				<h4>(11) 99608-6564</h4>
+			</div>
+		</div>
+	</div>
     </div>
     <!--/.Call to action-->
 
@@ -231,6 +250,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3">
       <h6 style="font-size: 90%">CNPJ: 04.979.452/0001-18</h6>
+      <h6 style="font-size: 90%">H.F. Goes Comercial LTDA-ME</h6>
       <h6>2018 Andybaby&reg;</h6>
     </div>
     <!--/.Copyright-->

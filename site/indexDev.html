@@ -19,14 +19,15 @@
 
 
 	<!-- Google -->
-   <meta name="google-signin-scope" content="profile email">
-   <meta name="google-signin-client_id" content="176166204314-hu2dpfa2v0p90g59ncpi9tep0h5966vg.apps.googleusercontent.com">
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="176166204314-hu2dpfa2v0p90g59ncpi9tep0h5966vg.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <link rel="icon"  type="image/x-icon" href="/static/favicon.ico">
+
+
 	<link href="assets/css/garbage1.css" rel="stylesheet">
 	<link href="assets/css/index/googleLoading.css" rel="stylesheet">
-	<script type="text/javascript" src="assets/js/login.js"></script>
 	<script type="text/javascript" src="assets/js/index/script2.js"></script>
 
 
@@ -397,7 +398,7 @@
       <!--Pagination-->
       <!--nav style="display: none"-->
       <!-- NAO SENDO USADO AINDA -->
-      <nav class="d-flex justify-content-center wow fadeIn">
+      <nav id="produtos" class="d-flex justify-content-center wow fadeIn">
         <ul class="pagination pg-blue">
 
           <!--Arrow left-->
@@ -408,48 +409,26 @@
             </a>
           </li>
 
-          <li class="page-item">
-            <a class="page-link" href="?pagina=1" tabLink="true">1</a>
+          <li class="page-item active">
+            <a class="page-link" href="?pagina=1">1
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="?pagina=2" tabLink="true">2</a>
+            <a class="page-link" href="?pagina=2">2</a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="?pagina=3" tabLink="true">3</a>
+            <a class="page-link" href="?pagina=3">3</a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="?pagina=4" tabLink="true">4</a>
+            <a class="page-link" href="?pagina=4">4</a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="?pagina=5" tabLink="true">5</a>
+            <a class="page-link" href="?pagina=5">5</a>
           </li>
-		<script>
-			function getQuery(q) {
-				return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
-			}
-			const teste = document.querySelectorAll("a[tabLink='true']");
-			const pagina = getQuery("pagina");
-			if(pagina == null) {
-				setPage(0);
-			} else {
-				for(var i = 0; i < teste.length; i++) {
-					if(pagina == teste[i].innerHTML) {
-						setPage(i);
-					}
-				}
-			}
-			function setPage(numero) {
-				const span = document.createElement("span");
-				span.setAttribute("class", "sr-only");
-				span.innerHTML = "(current)";
-				teste[numero].insertAdjacentElement('beforeend', span);
-				teste[numero].parentElement.setAttribute("class", "page-item active");
-			}
-			const span = '<span class="sr-only">(current)</span>';
-		</script>
 
           <li class="page-item">
-            <a class="page-link" href="" aria-label="Next">
+            <a class="page-link" href="#" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>

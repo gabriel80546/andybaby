@@ -16,14 +16,16 @@
 	<link href="css/style.min.css" rel="stylesheet">
 
 	<!-- Google -->
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="176166204314-hu2dpfa2v0p90g59ncpi9tep0h5966vg.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="176166204314-hu2dpfa2v0p90g59ncpi9tep0h5966vg.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
 
 
-	<script type="text/javascript" src="assets/js/carrinho/script.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+	<script type="text/javascript" src="assets/js/login.js"></script>
+	<script type="text/javascript" src="assets/js/carrinho/script.js"></script>
 
 </head>
 
@@ -34,7 +36,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="/">
+      <a class="navbar-brand waves-effect" href="/static/">
         <img src="assets/img/logo/LogoTransparente.png" style="width: 150px">
       </a>
 
@@ -50,7 +52,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="/">Loja
+            <a class="nav-link waves-effect" href="/static/">Loja
             </a>
           </li>
           <li class="nav-item active">
@@ -216,11 +218,11 @@
 
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="same-address">
-                <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                <label class="custom-control-label" for="same-address">Endereço do cartão é o mesmo que seu endereço</label>
               </div>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="save-info">
-                <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                <label class="custom-control-label" for="save-info">Guardar essa informação para proxima vez</label>
               </div>
 
               <hr>
@@ -228,11 +230,11 @@
               <div class="d-block my-3">
                 <div class="custom-control custom-radio">
                   <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="credit">Credit card</label>
+                  <label class="custom-control-label" for="credit">Cartão de credito</label>
                 </div>
                 <div class="custom-control custom-radio">
                   <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="debit">Debit card</label>
+                  <label class="custom-control-label" for="debit">Cartão de debito</label>
                 </div>
                 <div class="custom-control custom-radio">
                   <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
@@ -241,18 +243,18 @@
               </div>
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="cc-name">Name on card</label>
+                  <label for="cc-name">Nome no Cartão</label>
                   <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                  <small class="text-muted">Full name as displayed on card</small>
+                  <small class="text-muted">Nome completo no cartão</small>
                   <div class="invalid-feedback">
-                    Name on card is required
+                    Nome no cartão é obrigatório
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="cc-number">Credit card number</label>
+                  <label for="cc-number">Numero do cartão</label>
                   <input type="text" class="form-control" id="cc-number" placeholder="" required>
                   <div class="invalid-feedback">
-                    Credit card number is required
+                    Número do cartão é obrigatório
                   </div>
                 </div>
               </div>
@@ -273,7 +275,7 @@
                 </div>
               </div>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar</button>
 
             </form>
 
@@ -356,8 +358,19 @@
 
     <!--Call to action-->
     <div class="pt-4">
-      <h4>Celular</h4>
-      <h4>(11) 99608-6564</h4>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-0" style="visibility: hidden">
+				<p>a</p>
+			</div>
+			<div class="col-md-6 col-sm-12" style="display: grid; grid-template-columns: auto auto;">
+				<h4>Telefone (7h as 17h)</h4>
+				<h4>(11)  2692-2262</h4>
+				<h4>Celular</h4>
+				<h4>(11) 99608-6564</h4>
+			</div>
+		</div>
+	</div>
     </div>
     <!--/.Call to action-->
 
@@ -378,6 +391,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3">
       <h6 style="font-size: 90%">CNPJ: 04.979.452/0001-18</h6>
+      <h6 style="font-size: 90%">H.F. Goes Comercial LTDA-ME</h6>
       <h6>2018 Andybaby&reg;</h6>
     </div>
     <!--/.Copyright-->
