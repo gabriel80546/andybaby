@@ -9,11 +9,11 @@ function onLoad() {
 		loadDocDALCard("produto", "getCard", pagina);
 		document.querySelector("#produtos").scrollIntoView();
 	}
-	login();
+	login(function(usuario) { const nada = true; });
 }
 
 function loadDocDALCard(DAL, metodo, pagina) {
-	var xhttp = new XMLHttpRequest();
+	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			gerarCard(this.responseText);

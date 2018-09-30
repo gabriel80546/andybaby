@@ -35,6 +35,12 @@ app.use('/', function(req, res, next) {
 					res.end();
 				}, ip);
 			}
+			else if (req.query.metodo == "getCarrinho") {
+				usuarioDAL.getCarrinho(function (data) {
+					res.send(data);
+					res.end();
+				}, req.query.usuario);
+			}
 		} else if(req.query.DAL == "produto") {
 			if(false) {
 				console.log("WHAT?");

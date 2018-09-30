@@ -1,39 +1,31 @@
 function onLoad() {
-	loadDocDALUsuario("usuario", "getUsuario");
+	login(function(usuario) { 
+		console.log(usuario.ID);
+		if(typeof usuario.ID === undefined) {
+			const nada = true;
+		} else {
+			loadDocDALCard("usuario", "getCarrinho", usuario.ID);
+		}
+	});
 }
-function loadDocDALUsuario(DAL, metodo, pagina) {
-	var xhttp = new XMLHttpRequest();
+function loadDocDALCard(DAL, metodo, usuarioId) {
+	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			gerarUsuario(this.responseText);
+			gerarCarrinho(this.responseText);
 		}
 	};
-	xhttp.open("GET", "/?DAL=" + DAL + "&metodo=" + metodo, true);
+	xhttp.open("GET", "/?DAL=" + DAL + "&metodo=" + metodo + "&usuario=" + usuarioId, true);
 	xhttp.send();
 }
-function gerarUsuario(dados) {
-	var nome = new String();
-	dados == "ANONIMO" ? nome = "ANONIMO" : nome = JSON.parse(dados)[0].NOME;
-	const mepega = document.querySelector('mepegaNome');
-	const parente = mepega.parentElement;
-	const p = document.createElement('p');
-	p.setAttribute("class", "lead");
-	p.setAttribute("style", "margin: 3px;");
-	p.innerHTML = nome;
-	parente.insertAdjacentElement('afterend', p);
-	const subParente = parente.parentElement;
-	subParente.removeChild(parente);
+function gerarCarrinho(dados) {
 
-	if(dados=="ANONIMO") { return; }
-
-
-	dados = JSON.parse(dados)[0];
-	dados.CARRINHO = new Number(dados.CARRINHO);
-	if(dados.CARRINHO == 0) { return; }
-
-	const mepegaCarrinho = document.querySelector('mepegaCountCarrinho');
-	const count = document.createElement('span');
-	count.setAttribute("class", "badge red z-depth-1 mr-1");
-	count.innerHTML = " " + dados.CARRINHO + " ";
-	mepegaCarrinho.parentElement.insertAdjacentElement('afterbegin', count);
+	dados = JSON.parse(dados);
+/*	var saida = "";
+	for(var i = 0; i < dados.length; i++) {
+		saida = saida + "item" + i + ": " + dados[i].NOME + ";\n";
+	}
+	console.log(saida);
+*/
+	console.log('<li class="list-group-item d-flex justify-content-between lh-condensed"> <div> <h6 class="my-0">Product name</h6> <small class="text-muted">Brief description</small> </div> <span class="text-muted">$12</span> </li> ');
 }

@@ -1,24 +1,18 @@
-
-/*
-function onLoad() {
-	loadDocDALUsuario("usuario", "getUsuario");
-}
-*/
-function login() {
-	loadDocDALUsuario("usuario", "getUsuario");
+function login(callback) {
+	loadDocDALUsuario("usuario", "getUsuario", callback);
 }
 
-function loadDocDALUsuario(DAL, metodo, pagina) {
-	var xhttp = new XMLHttpRequest();
+function loadDocDALUsuario(DAL, metodo, callback) {
+	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			gerarUsuario(this.responseText);
+			gerarUsuario(this.responseText, callback);
 		}
 	};
 	xhttp.open("GET", "/?DAL=" + DAL + "&metodo=" + metodo, true);
 	xhttp.send();
 }
-function gerarUsuario(dados) {
+function gerarUsuario(dados, callback) {
 	var nome = new String();
 	dados == "ANONIMO" ? nome = "ANONIMO" : nome = JSON.parse(dados)[0].NOME;
 	const mepega = document.querySelector('mepegaNome');
@@ -43,4 +37,6 @@ function gerarUsuario(dados) {
 	count.setAttribute("class", "badge red z-depth-1 mr-1");
 	count.innerHTML = " " + dados.CARRINHO + " ";
 	mepegaCarrinho.parentElement.insertAdjacentElement('afterbegin', count);
+
+	callback(dados);
 }

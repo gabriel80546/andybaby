@@ -1,17 +1,3 @@
-
-window.card = new Object();
-window.card.id = new Array();
-window.card.img           = { corpo: new Array() , id: new Array() , coluna: "CAMINHO" };
-window.card.nome          = { corpo: new Array() , id: new Array() , coluna: "NOME" };
-window.card.cor           = { corpo: new Array() , id: new Array() , coluna: "COR" };
-window.card.precoAtacado  = { corpo: new Array() , id: new Array() , coluna: "PRECO_ATACADO" };
-window.card.fields = [ "img" , "nome" , "cor" , "precoAtacado" ];
-
-/*
-window.card.precoVarejo   = { corpo: new Array() , id: new Array() , coluna: "PRECO_VAREJO" };
-window.card.fields = [ "img" , "nome" , "cor" , "precoAtacado", "precoVarejo" ];
-*/
-
 function getQuery(q) {
 	return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
 }
@@ -27,12 +13,12 @@ function onLoad() {
 		loadDoc(produtoId, "PRECO_ATACADO");
 		loadDoc(produtoId, "NOME");
 	}
-	//getLogin();
+	login(function(usuario) { const nada = true; });
 }
 
 function loadDoc(id, coluna) {
 	var tabela = (coluna=="CAMINHO") ? "IMAGEM T" : "PRODUTO T";
-	var xhttp = new XMLHttpRequest();
+	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if(coluna == "CAMINHO") {
@@ -93,7 +79,7 @@ function genPreco(arg0) {
 	parente.insertAdjacentElement('beforeend', span);
 }
 function genNome(arg0) {
-	var mepega = document.querySelector('mepegaNome');
+	var mepega = document.querySelector('mepegaNome2');
 	var parente = mepega.parentElement;
 	var p = document.createElement('p');
 	var n = new Number(arg0);
@@ -102,91 +88,4 @@ function genNome(arg0) {
 	parente.insertAdjacentElement('afterend', p);
 	var subParente = parente.parentElement;
 	subParente.removeChild(parente);
-}
-
-function getLogin() {
-	getIp();
-}
-function onLoadAfterIp(ip) {
-	console.log("ip: " + ip);
-	getUsuario(ip);
-}
-function onLoadUsuario(id) {
-	console.log("id: " + id);
-	loadDocLogin("NOME", "USUARIO U", "U.ID=" + id);
-	loadDocLogin("count(C.ID)", "CARRINHO C JOIN CARRINHO_ITEMS CI ON C.ID=CI.ID_CARRINHO", "C.ID_USUARIO=" + id);
-}
-
-
-function loadDocLogin(coluna, tabela, where) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if(tabela == "CARRINHO C JOIN CARRINHO_ITEMS CI ON C.ID=CI.ID_CARRINHO") {
-				genCountCarrinho(this.responseText, coluna, tabela, where);
-			} else {
-				console.log("NOME: " + this.responseText);
-				genNome2(this.responseText, coluna, tabela, where);
-			}
-		}
-	};
-	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
-	xhttp.send();
-}
-
-function getIp(coluna, tabela, where) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			onLoadAfterIp(this.responseText);
-		}
-	};
-	xhttp.open("GET", "/?ip=1");
-	xhttp.send();
-}
-function getUsuario(ip) {
-	coluna = "ID";
-	tabela = "USUARIO U";
-	where = "U.IP='" + ip + "' AND U.LOGADO='S'";
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			onLoadUsuario(this.responseText);
-		}
-	};
-	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
-	xhttp.send();
-}
-function getCarrinho(id) {
-	coluna = "ID";
-	tabela = "USUARIO U";
-	where = "U.IP='" + ip + "' AND U.LOGADO='S'";
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			
-		}
-	};
-	xhttp.open("GET", "/?coluna=" + coluna + "&tabela=" + tabela + "&where=" + where , true);
-	xhttp.send();
-}
-
-function genNome2(dados, coluna, tabela, where) {
-	var mepega = document.querySelector('mepegaNome2');
-	var parente = mepega.parentElement;
-	var h1 = document.createElement('h6');
-	h1.setAttribute("style", "padding: 8px");
-	h1.innerHTML = dados;
-	parente.insertAdjacentElement('afterbegin', h1);
-}
-function genCountCarrinho(dados, coluna, tabela, where) {
-
-
-	var mepega = document.querySelector('mepegaCountCarrinho');
-	var parente = mepega.parentElement;
-	var span = document.createElement('span');
-	span.setAttribute("class", "badge red z-depth-1 mr-1");
-	span.innerHTML = " " + dados + " ";
-	parente.insertAdjacentElement('afterbegin', span);
-	return;
 }
