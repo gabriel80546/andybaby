@@ -1,31 +1,44 @@
 function onLoad() {
-	login(function(usuario) { 
-		console.log(usuario.ID);
-		if(typeof usuario.ID === undefined) {
+	loginWithCallback(function(usuario) {
+		if(typeof usuario.ID == "undefined") {
 			const nada = true;
-		} else {
-			loadDocDALCard("usuario", "getCarrinho", usuario.ID);
+		}
+		else {
+			API(gerarCarrinho, "usuario", "getCarrinho", [{usuario: usuario.ID}]);
 		}
 	});
-}
-function loadDocDALCard(DAL, metodo, usuarioId) {
-	const xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			gerarCarrinho(this.responseText);
-		}
-	};
-	xhttp.open("GET", "/?DAL=" + DAL + "&metodo=" + metodo + "&usuario=" + usuarioId, true);
-	xhttp.send();
 }
 function gerarCarrinho(dados) {
 
 	dados = JSON.parse(dados);
-/*	var saida = "";
-	for(var i = 0; i < dados.length; i++) {
-		saida = saida + "item" + i + ": " + dados[i].NOME + ";\n";
+
+	const carrinho = document.querySelector('mepegaCarrinhoItems');
+
+	const catchBeforeLoad = function(start, end) {
+		for(var i = start; i < end; i++) {
+			const dado = dados[i];
+			const LI_0 = document.createElement("LI");
+			LI_0.setAttribute("class", "list-group-item d-flex justify-content-between lh-condensed");
+			const DIV_1 = document.createElement("DIV");
+			LI_0.insertAdjacentElement("beforeend", DIV_1);
+			const H6_2 = document.createElement("H6");
+			H6_2.setAttribute("class", "my-0");
+			H6_2.innerHTML = dado.NOME; // NOME
+			DIV_1.insertAdjacentElement("beforeend", H6_2);
+			const SMALL_3 = document.createElement("SMALL");
+			SMALL_3.setAttribute("class", "text-muted");
+			SMALL_3.innerHTML = dado.COR; // COR
+			DIV_1.insertAdjacentElement("beforeend", SMALL_3);
+			const SPAN_4 = document.createElement("SPAN");
+			SPAN_4.setAttribute("class", "text-muted");
+			SPAN_4.innerHTML = dado.PRECO_ATACADO; // PRECO
+			LI_0.insertAdjacentElement("beforeend", SPAN_4);
+
+			carrinho.insertAdjacentElement('beforebegin', LI_0);
+		}
 	}
-	console.log(saida);
-*/
-	console.log('<li class="list-group-item d-flex justify-content-between lh-condensed"> <div> <h6 class="my-0">Product name</h6> <small class="text-muted">Brief description</small> </div> <span class="text-muted">$12</span> </li> ');
+	catchBeforeLoad(0, 1);
+	const googleLoad = document.querySelector('div.loader');
+	googleLoad.parentElement.removeChild(googleLoad);
+	catchBeforeLoad(1, dados.length);
 }

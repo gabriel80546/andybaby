@@ -1,15 +1,15 @@
-var mysql   = require("mysql");
+const mysql = require("mysql");
 
-var pool = mysql.createPool({
+const pool = mysql.createPool({
 	host: "localhost",
 	user: "root",
 	password: "123456",
 	database: "andybaby",
-	connectionLimit: 30
+	connectionLimit: 10
 });
 
 
-var DB = {
+const DB = {
 	query: function (query, params, callback) {
 		pool.getConnection(function (err, connection) {
 			if (err) {

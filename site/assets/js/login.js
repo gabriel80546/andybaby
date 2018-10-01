@@ -1,4 +1,7 @@
-function login(callback) {
+function login() {
+	loginWithCallback(new Function());
+}
+function loginWithCallback(callback) {
 	loadDocDALUsuario("usuario", "getUsuario", callback);
 }
 

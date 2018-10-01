@@ -1,2 +1,45 @@
-216.145.14.142
-ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'andybaby.U.ID'; this is incompatible with sql_mode=only_full_group_by
+function login() {
+	loginWithCallback(new Function());
+}
+function loginWithCallback(callback) {
+	loadDocDALUsuario("usuario", "getUsuario", callback);
+}
+
+function loadDocDALUsuario(DAL, metodo, callback) {
+	const xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			gerarUsuario(this.responseText, callback);
+		}
+	};
+	xhttp.open("GET", "/?DAL=" + DAL + "&metodo=" + metodo, true);
+	xhttp.send();
+}
+function gerarUsuario(dados, callback) {
+	var nome = new String();
+	dados == "ANONIMO" ? nome = "ANONIMO" : nome = JSON.parse(dados)[0].NOME;
+	const mepega = document.querySelector('mepegaNome');
+	const parente = mepega.parentElement;
+	const p = document.createElement('p');
+	p.setAttribute("class", "lead");
+	p.setAttribute("style", "margin: 3px;");
+	p.innerHTML = nome;
+	parente.insertAdjacentElement('afterend', p);
+	const subParente = parente.parentElement;
+	subParente.removeChild(parente);
+
+	if(dados=="ANONIMO") { return; }
+
+
+	dados = JSON.parse(dados)[0];
+	dados.CARRINHO = new Number(dados.CARRINHO);
+	if(dados.CARRINHO == 0) { return; }
+
+	const mepegaCarrinho = document.querySelector('mepegaCountCarrinho');
+	const count = document.createElement('span');
+	count.setAttribute("class", "badge red z-depth-1 mr-1");
+	count.innerHTML = " " + dados.CARRINHO + " ";
+	mepegaCarrinho.parentElement.insertAdjacentElement('afterbegin', count);
+
+	callback(dados);
+}
