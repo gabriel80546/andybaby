@@ -1,7 +1,7 @@
 function onLoad() {
 	loginWithCallback(function(usuario) {
 		if(typeof usuario.ID == "undefined") {
-			const nada = true;
+			return;
 		}
 		else {
 			API(gerarCarrinho, "usuario", "getCarrinho", [{usuario: usuario.ID}]);
@@ -11,6 +11,12 @@ function onLoad() {
 function gerarCarrinho(dados) {
 
 	dados = JSON.parse(dados);
+	console.log(dados, dados.length);
+	const carrinhoCount2 = document.querySelector('mepegaCountCarrinho2');
+	const span = document.createElement("span");
+	span.setAttribute("class", "badge badge-secondary badge-pill");
+	span.innerHTML = dados.length;
+	carrinhoCount2.insertAdjacentElement('afterend', span);
 
 	const carrinho = document.querySelector('mepegaCarrinhoItems');
 

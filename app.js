@@ -34,6 +34,12 @@ app.use('/', function(req, res, next) {
 					res.end();
 				}, req.query.usuario);
 			}
+			else if (req.query.metodo == "insertProduto") {
+				usuarioDAL.insertProduto(function (data) {
+					res.send(data);
+					res.end();
+				}, req.query.usuario, req.query.produto);
+			}
 		}
 		else if(req.query.DAL == "produto") {
 			if(req.query.metodo == "getCard") {

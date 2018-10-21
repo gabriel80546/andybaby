@@ -2,10 +2,18 @@ function getQuery(q) {
 	return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
 }
 
+window.usuario = new Object();
 function onLoad() {
-	const pagina = getQuery("produto");
-	pagina == null ? window.location.href = "/static/" : API(genProduto, "produto", "getProduto", [{produto: getQuery("produto")}]);
-	login();
+	const produto = getQuery("produto");
+	produto == null ? window.location.href = "/static/" : API(genProduto, "produto", "getProduto", [{produto: getQuery("produto")}]);
+	loginWithCallback(function(usuario) {
+		if(typeof usuario.ID == "undefined") {
+			window.usuario = null;
+		}
+		else {
+			window.usuario = usuario;
+		}
+	});
 }
 
 function genProduto(dados) {
@@ -65,4 +73,16 @@ function genProduto(dados) {
 	}
 	iframe.setAttribute("frameborder", "0");
 	parente.insertAdjacentElement('beforeend', iframe);
+}
+function addProduto() {
+	if(window.usuario == null) {
+		alert("Usuario não identificado");
+	}
+	else {
+		API(function() { window.location.replace("/static/?pagina=1"); } ,
+			"usuario",
+			"insertProduto",
+			[{usuario: window.usuario.ID}, {produto: getQuery("produto")}]
+		);
+	}
 }

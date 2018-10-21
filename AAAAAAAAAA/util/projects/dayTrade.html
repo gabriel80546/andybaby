@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>DayTrade</title>
+	<meta charset="utf-8">
+	<script>
+		function comprar(arg0) {
+			const alavancagem = new Number(arg0.value);
+			const preco = new Number(document.querySelector('span#chart-info-last').innerHTML.replace(",", "."));
+			const carteira = document.querySelector('label#GabrielCapital');
+			const carteiraAcoes = document.querySelector('label#GabrielEmAcoes');
+			const acaoTotal = new Number(preco * alavancagem);
+			const carteiraTemp = (new Number(carteira.innerHTML) - (acaoTotal));
+			const carteiraAcoesTemp = ((new Number(carteiraAcoes.innerHTML)) + (acaoTotal));
+			carteiraAcoes.innerHTML = (new Number(carteiraAcoesTemp)).toPrecision(Math.floor(Math.log10(carteiraTemp)) + 3);
+			
+			const quantas = document.querySelector('label#GabrielQuantas');
+			quantas.innerHTML = alavancagem;
+			
+			const total = document.querySelector('label#GabrielTotal');
+			total.innerHTML = acaoTotal;
+			
+			const quando = document.querySelector('label#GabrielQuando');
+			quando.innerHTML = (new Date()).toLocaleString();
+			
+			const precoNaCompra = document.querySelector('label#GabrielPreco');
+			precoNaCompra.innerHTML = preco;
+			
+			const tipo = document.querySelector('label#GabrielTipo');
+			tipo.innerHTML = "COMPRA";
+			
+			
+			const botaoCompra = document.querySelector('button#GabrielBotaoCompra');
+			const botaoVenda = document.querySelector('button#GabrielBotaoVenda');
+			const botaoFechar = document.querySelector('button#GabrielBotaoFechar');
+			botaoCompra.setAttribute("style", "background-color: green; display: none;");
+			botaoVenda.setAttribute("style", "background-color: red; display: none;");
+			botaoFechar.setAttribute("style", "display: block;");
+		}
+		function vender(arg0) {
+			const alavancagem = new Number(arg0.value);
+			const preco = new Number(document.querySelector('span#chart-info-last').innerHTML.replace(",", "."));
+			const carteira = document.querySelector('label#GabrielCapital');
+			const carteiraAcoes = document.querySelector('label#GabrielEmAcoes');
+			const acaoTotal = new Number(preco * alavancagem);
+			const carteiraTemp = (new Number(carteira.innerHTML) + (acaoTotal));
+			carteira.innerHTML = (new Number(carteiraTemp)).toPrecision(Math.floor(Math.log10(carteiraTemp)) + 3);
+			const carteiraAcoesTemp = ((new Number(carteiraAcoes.innerHTML)) - (acaoTotal));
+			carteiraAcoes.innerHTML = (new Number(carteiraAcoesTemp)).toPrecision(Math.floor(Math.log10(carteiraTemp)) + 3);
+			
+			const quantas = document.querySelector('label#GabrielQuantas');
+			quantas.innerHTML = alavancagem;
+			
+			const total = document.querySelector('label#GabrielTotal');
+			total.innerHTML = acaoTotal;
+			
+			const quando = document.querySelector('label#GabrielQuando');
+			quando.innerHTML = (new Date()).toLocaleString();
+			
+			const precoNaCompra = document.querySelector('label#GabrielPreco');
+			precoNaCompra.innerHTML = preco;
+			
+			const tipo = document.querySelector('label#GabrielTipo');
+			tipo.innerHTML = "VENDA";
+			
+			const botaoCompra = document.querySelector('button#GabrielBotaoCompra');
+			const botaoVenda = document.querySelector('button#GabrielBotaoVenda');
+			const botaoFechar = document.querySelector('button#GabrielBotaoFechar');
+			botaoCompra.setAttribute("style", "background-color: green; display: none;");
+			botaoVenda.setAttribute("style", "background-color: red; display: none;");
+			botaoFechar.setAttribute("style", "display: block;");
+		}
+		function fechar(arg0) {
+			const botaoCompra = document.querySelector('button#GabrielBotaoCompra');
+			const botaoVenda = document.querySelector('button#GabrielBotaoVenda');
+			const botaoFechar = document.querySelector('button#GabrielBotaoFechar');
+			
+			
+			const dataInicio = document.querySelector('label#GabrielQuando').innerHTML.replace(' ', '_');
+			const dataFim = new Date().toLocaleString().replace(' ', '_');
+			
+			const precoInicio = new Number(document.querySelector('label#GabrielPreco').innerHTML);
+			const precoFinal = new Number(document.querySelector('span#chart-info-last').innerHTML.replace(",", "."));
+			
+			const precoInicioTotal = precoInicio * new Number(arg0.value);
+			const precoFinalTotal = precoFinal * new Number(arg0.value);
+			
+			const resultado = precoFinalTotal - precoInicioTotal;
+			
+			
+			const carteira = document.querySelector('label#GabrielCapital');
+			carteira.innerHTML = new Number((new Number(carteira.innerHTML)) + new Number(resultado));
+			
+			
+			
+			
+			const historico = document.querySelector('div#GabrielHistorico');
+			const DIV_1 = document.createElement("DIV");
+			DIV_1.setAttribute("style", "display: flex; flex-direction: row; height: 25px; margin: 10px 0 10px 0; margin: 10px 0 10px 0;");
+			
+			const H6_4 = document.createElement("H6");
+			H6_4.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_4.innerHTML = "Resultado";
+			DIV_1.insertAdjacentElement("beforeend", H6_4);
+			const H6_5 = document.createElement("H6");
+			H6_5.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_5.innerHTML = resultado;
+			DIV_1.insertAdjacentElement("beforeend", H6_5);
+			
+			const H6_8 = document.createElement("H6");
+			H6_8.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_8.innerHTML = "PreçoInicial";
+			DIV_1.insertAdjacentElement("beforeend", H6_8);
+			const H6_9 = document.createElement("H6");
+			H6_9.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_9.innerHTML = precoInicio;
+			DIV_1.insertAdjacentElement("beforeend", H6_9);
+			
+			const H6_2 = document.createElement("H6");
+			H6_2.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_2.innerHTML = "DataInicio";
+			DIV_1.insertAdjacentElement("beforeend", H6_2);
+			const H6_3 = document.createElement("H6");
+			H6_3.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_3.innerHTML = dataInicio;
+			DIV_1.insertAdjacentElement("beforeend", H6_3);
+			
+			
+			
+			
+			
+			const H6_10 = document.createElement("H6");
+			H6_10.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_10.innerHTML = "PreçoFinal";
+			DIV_1.insertAdjacentElement("beforeend", H6_10);
+			const H6_11 = document.createElement("H6");
+			H6_11.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_11.innerHTML = precoFinal;
+			DIV_1.insertAdjacentElement("beforeend", H6_11);
+			
+			const H6_6 = document.createElement("H6");
+			H6_6.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_6.innerHTML = "DataFim";
+			DIV_1.insertAdjacentElement("beforeend", H6_6);
+			const H6_7 = document.createElement("H6");
+			H6_7.setAttribute("style", "margin: 0 5px 0 5px;");
+			H6_7.innerHTML = dataFim;
+			DIV_1.insertAdjacentElement("beforeend", H6_7);
+			
+			
+			
+			
+			historico.insertAdjacentElement("beforeend", DIV_1);
+			
+			botaoCompra.setAttribute("style", "background-color: green;");
+			botaoVenda.setAttribute("style", "background-color: red;");
+			botaoFechar.setAttribute("style", "display: none;");
+		}
+	</script>
+</head>
+
+<body>
+	<div style="width: 500px; background-color: #abc;">
+		<label>Capital na Carteira:</label>
+		<label id="GabrielCapital">10000</label>
+		<br>
+		<label>Em Ações:</label>
+		<label id="GabrielEmAcoes">0</label>
+		<br>
+
+		<hr>
+		<label>Historico:</label>
+		<br>
+		<div id="GabrielHistorico" style="overflow:scroll; height:100px; display: flex; flex-direction: column;">
+		</div>
+
+		<label>Atual Negociação:</label>
+		<label id="GabrielNegociacao"></label>
+		<br>
+		<label>Quando:</label>
+		<label id="GabrielQuando"></label>
+		<br>
+		<label>Quantas Ações:</label>
+		<label id="GabrielQuantas"></label>
+		<br>
+		<label>Preco:</label>
+		<label id="GabrielPreco"></label>
+		<br>
+		<label>Total:</label>
+		<label id="GabrielTotal"></label>
+		<br>
+		<hr>
+		<label id="GabrielTipo" style="display: none;"></label>
+		<label for="GABRIEL1">Número de Ações</label>
+		<input id="GABRIEL1" type="number" min="1" value="1">
+		<br>
+		<button id="GabrielBotaoCompra" style="background-color: green;" onclick="comprar(GABRIEL1);">Comprar</button>
+		<button id="GabrielBotaoVenda"  style="background-color: red;" onclick="vender(GABRIEL1);">Vender</button>
+		<button id="GabrielBotaoFechar" style="display: none;" onclick="fechar(GABRIEL1);">Fechar</button>
+	</div>
+	<span id="chart-info-last">25,30</span>
+	<br>
+	<button onclick="const preco = document.querySelector('#chart-info-last'); console.log(preco); preco.innerHTML = new Number((new Number(preco.innerHTML.replace(',', '.')))) + (new Number(1));">
+	preco++
+	</button>
+</body>
+
+</html>
