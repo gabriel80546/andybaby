@@ -1,9 +1,14 @@
 var express = require('express');
-var mysql = require('mysql');
+//var mysql = require('mysql');
 var app = express();
 
 
+const port = 8080;
+
+
+/*
 var DB = require('./DAL/baseDAL.js');
+
 
 var usuarioDAL = require('./DAL/UsuarioDAL.js');
 var produtoDAL = require('./DAL/ProdutoDAL.js');
@@ -60,7 +65,8 @@ app.use('/', function(req, res, next) {
 		next();
 	}
 });
+*/
 
-app.listen(3000, function () {
+app.listen(port, () => {
 	console.log('Example app listening on port 3000!');
 });
