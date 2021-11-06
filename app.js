@@ -2,9 +2,7 @@ var express = require('express');
 //var mysql = require('mysql');
 var app = express();
 
-
 const port = 8080;
-
 
 /*
 var DB = require('./DAL/baseDAL.js');
